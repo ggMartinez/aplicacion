@@ -1,7 +1,9 @@
 version: '2.2'
 services:
   apache:
-    image: php:7.4-apache
+    build:
+      context: .
+      dockerfile: Dockerfile
     tty: true
     restart: unless-stopped
     ports:
