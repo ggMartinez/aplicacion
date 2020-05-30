@@ -1,0 +1,23 @@
+version: '2.2'
+services:
+  apache:
+    image: php:7.4-apache
+    tty: true
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      - CONEXION_DB=test
+    volumes:
+      - /Users/gonzalo.martinez/php:/var/www/html
+
+  mysql:
+    image: mysql:5.7
+    tty: true
+    ports:
+      - "3307:3306"
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=123
+    volumes:
+      - /Users/gonzalo.martinez/php/db:/var/lib/mysql
